@@ -103,3 +103,14 @@ exports.editprofile=function(req,res){
       res.render('edit_profile.ejs',{data:results});
    });
 };
+
+//---------------------------------- create quiz after login--------------------------------
+exports.createQuiz = function (req,res) {
+    console.log('createQuiz');
+    var userId = req.session.userId;
+    if(userId == null){
+       res.redirect("/login");
+       return;
+    }
+    res.render('createQuiz');
+}

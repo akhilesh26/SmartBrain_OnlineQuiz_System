@@ -6,6 +6,7 @@ var session = require('express-session');
 var path = require('path');
 var routes = require('./controllers/index');
 var users = require('./controllers/users');
+var quiz = require('./controllers/quiz');
 var mysql = require('mysql');
 
 
@@ -68,4 +69,6 @@ app.post('/login', users.login);//call for login post
 app.post('/signup', users.signup);//call for signup post
 app.get('/home/dashboard', users.dashboard);//call for dashboard page after login
 app.get('/home/logout', users.logout);//call for logout
-app.get('/home/profile',users.profile);//to render users profile
+app.get('/home/profile', users.profile);//to render users profile
+app.get('/user/createQuiz', users.createQuiz)// to render createQuiz page
+app.post('/user/createQuiz', quiz.createQuiz);// call for createquiz post
